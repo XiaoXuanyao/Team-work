@@ -1,0 +1,3 @@
+/mnt/hgfs/yolo26/WL/build_arm/CMakeFiles/yolo26n.dir
+/mnt/hgfs/yolo26/WL/build_arm/CMakeFiles/edit_cache.dir
+/mnt/hgfs/yolo26/WL/build_arm/CMakeFiles/rebuild_cache.dir

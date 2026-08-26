@@ -1,0 +1,21 @@
+# 本机评估用（data.yaml 的 path 指向训练机，此处改为本机路径）
+# 实际划分：train 3593 / val 891
+path: D:/HLCH/Works/BoatRec/data/chusai_4yolo
+train: images/train
+val: images/val
+
+nc: 13
+names:
+  0: hangmu
+  1: huweijian
+  2: bujijian
+  3: denglujian
+  4: haijingchuan
+  5: junyongtuochuan
+  6: buyuchuan
+  7: tuochuan
+  8: huolunjizhuangxiangchuan
+  9: youlue
+  10: youting
+  11: fanchuan
+  12: minyongshiyanchuan

@@ -1,0 +1,30 @@
+imodel:
+  cudamode: false
+  mmuMode: true
+  speedmode: false
+  compressFtmp: false
+  ocm_option: -1
+  dir: ../imodel
+  stage: g
+  run_backend: buyi
+  ip: 169.254.135.10
+  save: true
+  show: false
+  dump_output: false
+  dump_format: SFB
+  log_path: ../io/output/ftmp
+
+dataset:
+  dir: ../io/input
+  list: ../io/list.txt
+  names: ../names/yolo26.names
+  res: ../io/output
+
+param:
+  conf: 0.25
+  iou_thresh: 0.45
+  multilabel: false
+  fpga_nms: false
+  number_of_class: 13
+  number_of_head: 3
+  anchors: []

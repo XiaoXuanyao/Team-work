@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/mnt/hgfs/yolo26/WL/build_arm",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/mnt/hgfs/yolo26/WL/./modelzoo_utils -I/ModelzooDeps/aarch64/Static/include -isystem /ModelzooDeps/aarch64/Static/include/opencv4 -isystem /usr/include/icraft-backends-wl -isystem /usr/include/icraft-xrt-wl -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles/yolo26n.dir/src/yolo26n.cpp.o -c /mnt/hgfs/yolo26/WL/src/yolo26n.cpp",
+  "file": "/mnt/hgfs/yolo26/WL/src/yolo26n.cpp",
+  "output": "CMakeFiles/yolo26n.dir/src/yolo26n.cpp.o"
+}
+]

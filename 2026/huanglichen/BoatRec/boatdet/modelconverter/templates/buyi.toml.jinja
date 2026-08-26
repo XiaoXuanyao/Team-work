@@ -1,0 +1,45 @@
+[parse]
+net_name = "{{ net_name }}"
+framework = "onnx"
+frame_version = "opset17"
+inputs = [1, {{ imgsz }}, {{ imgsz }}, 3]
+inputs_layout = "NHWC"
+pre_method = "resize"
+pre_scale = [255.0, 255.0, 255.0]
+pre_mean = [0.0, 0.0, 0.0]
+channel_swap = [0, 1, 2]
+network = "{{ fmodel }}/{{ onnx_file }}"
+jr_path = "{{ outdir }}/imodel/BY/{{ quant_dir }}/"
+target = "buyi"
+
+[optimize]
+target = "BUYI"
+json = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_parsed.json"
+raw = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_parsed.raw"
+jr_path = "{{ outdir }}/imodel/BY/{{ quant_dir }}/"
+
+[quantize]
+forward_mode = "image"
+saturation = "kld"
+forward_dir = "./{{ qtset }}/{{ qtset_img_dir }}"
+forward_list = "./{{ qtset }}/{{ qtset_txt }}"
+batch = 1
+bits = 8
+json = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_optimized.json"
+raw = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_optimized.raw"
+jr_path = "{{ outdir }}/imodel/BY/{{ quant_dir }}/"
+per = "channel"
+target = "buyi"
+
+[adapt]
+target = "BUYI"
+json = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_quantized.json"
+raw = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_quantized.raw"
+jr_path = "{{ outdir }}/imodel/BY/{{ quant_dir }}/"
+pass_on = "{{ adapt_pass }}"
+custom_config = "config/customop/yolov26.toml"
+
+[generate]
+json = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_adapted.json"
+raw = "{{ outdir }}/imodel/BY/{{ quant_dir }}/{{ net_name }}_adapted.raw"
+jr_path = "{{ outdir }}/imodel/BY/{{ quant_dir }}/"

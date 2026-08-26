@@ -1,0 +1,64 @@
+﻿yolov10:
+  yolov10:
+
+    style: cv-det
+
+    status:
+      speed: ok
+      metrics: ok
+
+    contributor: lxm
+    reviewer: none
+
+    model_source:
+      code: https://github.com/THU-MIG/yolov10.git
+      branch: main
+      commit_id: cd2f79c
+      weights: ["https://github.com/THU-MIG/yolov10/releases/download/v1.1/yolov10n.pt",]
+
+    deploy_cmd: [./yolov10 ../cfg/yolov10_BY_int8_demo.yaml]
+    
+    fpga_op: ['imagemake', 'detpost', "nms"]
+
+    input_shape: [[1,3,640,640],]
+
+    time:
+      BY:
+        int8: 4.769975 ms
+        int16: 
+        mix: 5.126985 ms
+      ZG:
+        int8: 
+        bf16: 
+        fp16: 
+        tf16: 
+        mix: 
+
+    posttime:
+      BY:
+        int8: 1.055946 ms
+        int16: 
+        mix: 1.265458 ms
+      ZG:
+        int8: 
+        bf16: 
+        fp16: 
+        tf16: 
+        mix: 
+
+    test_cmd: [./yolov10 ../cfg/yolov10_test.yaml]
+    dataset: [coco2017val, "http://images.cocodataset.org/zips/val2017.zip"]
+  
+    metrics:
+      float:
+        ap50-95: 38.5
+      BY:
+        int8: [kld-pc, {ap50: 0.524, ap50-95: 0.367}]
+        int16: 
+        mix: [kld-pc, {ap50: 0.524, ap50-95: 0.368}]
+      ZG:
+        int8: []
+        bf16: []
+        fp16: 
+        tf16: 
+        mix: 

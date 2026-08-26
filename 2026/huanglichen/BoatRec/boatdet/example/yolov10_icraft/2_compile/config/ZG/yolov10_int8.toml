@@ -1,0 +1,58 @@
+[parse]
+net_name = "Yolov10n"
+framework = "pytorch"
+frame_version = "1.9"
+inputs = [1, 640, 640, 3]
+inputs_layout = "NHWC"
+inputs_dtype = "UINT8"
+pre_method = "resize"
+pre_scale = [255.0, 255.0, 255.0]
+pre_mean = [0.0, 0.0, 0.0]
+channel_swap = [0, 1, 2]
+network = "fmodel/yolov10n_640x640.pt"
+jr_path = "../3_deploy/imodel/ZG/int8/"
+target = "zhuge"
+
+[optimize]
+target = "zhuge"
+json = "../3_deploy/imodel/ZG/int8/Yolov10n_parsed.json"
+raw = "../3_deploy/imodel/ZG/int8/Yolov10n_parsed.raw"
+jr_path = "../3_deploy/imodel/ZG/int8/"
+
+[quantize]
+forward_mode = "image" 
+saturation = "kld"
+forward_dir = "./qtset/coco"
+forward_list = "./qtset/coco.txt "
+batch = 1
+qdtype = "int8"
+json = "../3_deploy/imodel/ZG/int8/Yolov10n_optimized.json"
+raw = "../3_deploy/imodel/ZG/int8/Yolov10n_optimized.raw"
+jr_path = "../3_deploy/imodel/ZG/int8/"
+per = "channel"
+target = "zhuge"
+
+[adapt]
+target = "zhuge"
+json = "../3_deploy/imodel/ZG/int8/Yolov10n_quantized.json"
+raw = "../3_deploy/imodel/ZG/int8/Yolov10n_quantized.raw"
+jr_path = "../3_deploy/imodel/ZG/int8/"
+# pass_on =  "customop.ImageMakePass,customop.DetPostPass"
+# custom_config = "config/customop/yolov10.toml"
+
+[generate]
+json = "../3_deploy/imodel/ZG/int8/Yolov10n_adapted.json"
+raw = "../3_deploy/imodel/ZG/int8/Yolov10n_adapted.raw"
+jr_path = "../3_deploy/imodel/ZG/int8/"
+
+[run]
+log_time = true
+log_io = true
+dump_format = "SFB"
+json = "../3_deploy/imodel/ZG/int8/Yolov10n_ZG.json"
+raw = "../3_deploy/imodel/ZG/int8/Yolov10n_ZG.raw"
+input = "./qtset/coco/horses.jpg"
+backends = "ZG330,socket://ql100aiu@192.168.124.134:9981?npu=0x40000000&dma=0x80000000;Host"
+
+
+

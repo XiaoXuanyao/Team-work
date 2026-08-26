@@ -1,0 +1,43 @@
+
+  # stage:
+  # "p": "parsed",
+  # "o": "optimized",
+  # "q": "quantized",
+  # "a": "adapted",
+  # "g": "BY/ZG",
+  # run_backend: buyi/zg330/host
+imodel: 
+  cudamode: false  
+  mmuMode: true
+  speedmode: false
+  compressFtmp: false
+  ocm_option: 4
+  dir: ../imodel/ZG/int8
+  stage: g
+  run_backend: zg330
+  ip: 192.168.125.181
+  save: true
+  show: true
+  dump_output: false
+  dump_format: SFB
+  log_path: ../io/output/ftmp
+ 
+dataset:
+  dir: ../io/input
+  list: ../io/list.txt
+  names: ../names/coco.names
+  res: ../io/output
+
+param:
+  conf: 0.1
+  iou_thresh: 0.7
+  multilabel: true
+  number_of_class: 80
+  number_of_head: 3
+  anchors: []
+  fpga_nms: true
+
+camera:
+  do: true
+  camerah: 1080
+  cameraw: 1920

@@ -1,0 +1,17 @@
+[ImageMake]
+forward_dll = "C:/Icraft/CLI/bin/customop.ImageMake.dll"
+forward_so = ""
+no_imkpad = 1
+quantized = true
+
+[DetPost]
+forward_dll = "C:/Icraft/CLI/bin/customop.DetPost.dll"
+forward_so = ""
+quantized = true
+thr_f = 0.001
+cmp_en = 1
+
+# YOLO26 anchor-free：3 尺度，每组 1 个 anchor
+groups = 3
+anchor_num = 1
+position = -1

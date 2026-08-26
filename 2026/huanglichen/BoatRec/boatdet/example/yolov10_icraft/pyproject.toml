@@ -1,0 +1,21 @@
+[project]
+name = "yolov10-icraft"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.8.*"
+dependencies = [
+    "huggingface-hub>=0.34.4",
+    "icraft>=3.31.0",
+    "matplotlib>=3.7.5",
+    "opencv-python>=4.12.0.88",
+    "pandas>=2.0.3",
+    "psutil>=7.0.0",
+    "py-cpuinfo>=9.0.0",
+    "pycocotools>=2.0.7",
+    "pyyaml>=6.0.2",
+    "requests>=2.32.4",
+    "torch==2.0.1",
+    "torchvision>=0.15.2",
+    "tqdm>=4.67.1",
+]
