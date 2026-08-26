@@ -1,0 +1,23 @@
+# YOLO 数据集配置 — 自动生成
+# 类别数: 13
+# Train: 10650 张, Val: 2672 张
+
+path: /home/ubuntu/workspace/datasets/chusai_4yolo
+train: images/train
+val: images/val
+
+nc: 13
+names:
+  0: hangmu
+  1: huweijian
+  2: bujijian
+  3: denglujian
+  4: haijingchuan
+  5: junyongtuochuan
+  6: buyuchuan
+  7: tuochuan
+  8: huolunjizhuangxiangchuan
+  9: youlue
+  10: youting
+  11: fanchuan
+  12: minyongshiyanchuan

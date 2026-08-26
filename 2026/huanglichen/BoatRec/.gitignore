@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 模型权重 / 位流 / 可执行（不入库；data/chusai_4yolo 数据集除外）
+*.pt
+*.onnx
+*.raw
+*.bit
+*.bin
+*.pbi
+*.pbw
+*.pbd
+*.elf
+*.o
+*.a
+*.so
+*.dll
+*.ko
+*.exe
+*.whl
+*.deb
+*.ftmp
+*.imk_bak
+
+# 压缩 / 镜像
+*.zip
+*.rar
+*.7z
+*.gz
+*.bz2
+*.tar
+
+# 构建产物
+*.dcp
+*.sdb
+*.vdb
+*.rpt
+*.jou
+*.log
+*.wdf
+*.wdb
+*.browse
+*.ninja
+*.ninja_log
+*.dep
+*.map
+*.dbgdt
+*.crun
+*.ngc
+*.ngd
+*.ngm
+xsim.dir/
+*.runs/
+*.sim/
+*.cache/
+*.hw/
+rundir/
+Debug/
+BrowseInfo/
+.Xil/
+ip_patch/
+
+# 工具缓存
+.conda/
+.vscode/
+.idea/
+node_modules/
+
+# OS
+Thumbs.db
+.DS_Store
